@@ -23,7 +23,7 @@ def __init__(self, channel_id: str) -> None:
     # описание канала
     self.description = self.channel_info['items'][0]['snippet']['description']
     # ссылка на канал
-    self.url = "https://www.youtube.com/channel/" + self.channel_info['items'][0]['snippet']['customUrl']
+    self.url = f'https://www.youtube.com/channel/{self._channel_id}'
     # количество подписчиков
     self.subscribers_count = int(self.channel_info['items'][0]['statistics']['subscriberCount'])
     # количество видео
