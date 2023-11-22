@@ -33,19 +33,19 @@ class Channel:
         self.view_count = int(self.channel_info['items'][0]['statistics']['viewCount'])
 
 
-    def _str_(self):
+    def __str__(self):
         return f'"{self.title}" ("{self.url}")'
-    def _add_(self, other):
+    def __add__(self, other):
         return self.subscribers_count + other.subscribers_count
-    def _sub_(self, other):
+    def __sub__(self, other):
         return self.subscribers_count - other.subscribers_count
-    def _lt_(self, other):
+    def __lt__(self, other):
         return self.subscribers_count < other.subscribers_count
-    def _le_(self, other):
+    def __le__(self, other):
         return self.subscribers_count <= other.subscribers_count
-    def _gt_(self, other):
+    def __gt__(self, other):
         return self.subscribers_count > other.subscribers_count
-    def _ge_(self, other):
+    def __ge__(self, other):
         return self.subscribers_count >= other.subscribers_count
 
 
