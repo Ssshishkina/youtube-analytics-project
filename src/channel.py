@@ -2,6 +2,7 @@ import json
 import os
 from googleapiclient.discovery import build
 
+
 class Channel:
         """Класс для ютуб-канала"""
 
@@ -30,6 +31,22 @@ class Channel:
         self.video_count = int(self.channel_info['items'][0]['statistics']['videoCount'])
         # общее количество просмотров
         self.view_count = int(self.channel_info['items'][0]['statistics']['viewCount'])
+
+
+    def _str_(self):
+        return f'"{self.title}" ("{self.url}")'
+    def _add_(self, other):
+        return self.subscribers_count + other.subscribers_count
+    def _sub_(self, other):
+        return self.subscribers_count - other.subscribers_count
+    def _lt_(self, other):
+        return self.subscribers_count < other.subscribers_count
+    def _le_(self, other):
+        return self.subscribers_count <= other.subscribers_count
+    def _gt_(self, other):
+        return self.subscribers_count > other.subscribers_count
+    def _ge_(self, other):
+        return self.subscribers_count >= other.subscribers_count
 
 
 # Данный декоратор прописан для того, что вывести ошибку, согласно задания.
