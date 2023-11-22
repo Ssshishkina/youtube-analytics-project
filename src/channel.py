@@ -33,7 +33,7 @@ class Channel:
         self.view_count = int(self.channel_info['items'][0]['statistics']['viewCount'])
 
 
-    def __str__(self):
+    def __str_(self):
         return f'"{self.title}" ("{self.url}")'
     def __add__(self, other):
         return self.subscribers_count + other.subscribers_count
