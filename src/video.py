@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 
 class Video:
 
-    def __init__(self, channel_id: str, youtube = build('youtube', 'v3',
+    def __init__(self, channel_id: str, youtube=build('youtube', 'v3',
                                                         developerKey=os.getenv('API_KEY'))) -> None:
         """экземпляр инициализируется id канала.
         дальше все данные будут подтягиваться по API"""
