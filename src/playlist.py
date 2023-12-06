@@ -1,5 +1,5 @@
 import os
-import datatime
+import datetime
 import isodate
 from googleapiclient.discovery import build
 
@@ -63,7 +63,7 @@ class PlayList:
 
     @property
     def total_duration(self):
-        total_duration = sum(self.get_videos_duration(), datatime.timedelta())
+        total_duration = sum(self.get_videos_duration(), datetime.timedelta())
         return total_duration
 
     def show_best_video(self):
@@ -73,6 +73,6 @@ class PlayList:
         for video in playlist_videos["items"]:
             if most_liked_video < int(video["statistics"]["likeCount"]):
                 most_liked_video = int(video["statistics"]["likeCount"])
-                most_liked_video = video["id"]
+                most_liked_video_id = video["id"]
 
         return f"https://youtu.be/{most_liked_video_id}"
