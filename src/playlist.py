@@ -6,16 +6,15 @@ from googleapiclient.discovery import build
 
 class PlayList:
     api_key: str = os.getenv('API_KEY')
+
     def __init__(self, playlist_id: str) -> None:
         self.playlist_id = playlist_id
         self.title = self.get_playlist_title()
         self.url = "https://www.youtube.com/playlist?list=" + playlist_id
 
-
     @classmethod
     def get_service(cls):
         return build('youtube', 'v3', developerKey=cls.api_key)
-
 
     def get_playlist_title(self):
         channel_id = self.get_playlist_data()["items"][0]["snippet"]["channelId"]
@@ -67,6 +66,7 @@ class PlayList:
         return total_duration
 
     def show_best_video(self):
+        global most_liked_video_id
         playlist_videos = self.get_videos_from_playlist()
         most_liked_video = 0
 
